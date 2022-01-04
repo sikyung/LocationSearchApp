@@ -19,6 +19,12 @@ class SearchRecyclerAdapter(
             textextView.text = "제목"
             subtexTexttView.text = "부제목"
        }
+
+        fun bindViews(data: Any) {
+            binding.root.setOnClickListener {
+                searchResultClickListener(data)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchResultItemViewHolder {
@@ -28,6 +34,7 @@ class SearchRecyclerAdapter(
 
     override fun onBindViewHolder(holder: SearchResultItemViewHolder, position: Int) {
         holder.bindData(Any())
+        holder.bindViews(Any())
     }
 
     override fun getItemCount(): Int = 10
